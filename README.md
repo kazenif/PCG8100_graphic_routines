@@ -1,6 +1,6 @@
 # PCG8100用グラフィックルーチン群とデモプログラム
 ちくらっぺさん([@chiplappe](https://twitter.com/chiqlappe))の[新PCG](https://github.com/chiqlappe/new_pcg)のデモ用の
-[ライブラリ](https://github.com/kazenif/new_pcg)を
+[ライブラリ](https://github.com/kazenif/new_pcg_demo)を
 ベースに、PCG8100向けに移植したバージョンです。
 
 40桁×25行モードで実行するので、320×200ドットのグラフィックが扱えます。
