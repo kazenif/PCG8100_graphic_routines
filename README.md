@@ -1,7 +1,9 @@
 # PCG8100用グラフィックルーチン群とデモプログラム
 ちくらっぺさん([@chiplappe](https://twitter.com/chiqlappe))の[新PCG](https://github.com/chiqlappe/new_pcg)のデモ用の
-[ライブラリ](https://github.com/kazenif/new_pcg_demo)を
-ベースに、PCG8100向けに移植したバージョンです。
+[ライブラリ](https://github.com/kazenif/new_pcg_demo)をベースに、PCG8100向けに移植したバージョンです。
+
+ぶっちゃけていうと、ちくらっぺさんの新PCGの良さをしみじみ感じることができる比較用のライブラリです。PCG-8100をサポートした多くのPC-8001エミュレータや、
+PSAやPCG-8100を増設したPC8001でお楽しみいただけます。
 
 40桁×25行モードで実行するので、320×200ドットのグラフィックが扱えます。
 
