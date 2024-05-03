@@ -523,7 +523,6 @@ STORE_PCG_DATA_TO_BUFFER:    ; HL は PCG_RAM の当該パタンを指す
   INC  DE
 
   LD   A,H
-  OR   4
   LD   (DE),A
   INC  DE
 
@@ -875,102 +874,115 @@ CLEAR_PCG_0:
   OR   C
   JR   NZ,CLEAR_PCG_0
 
-  LD   B,128
-  LD   DE,128*8
+
+  LD   DE,0
+
+  LD   B,16
+  LD   C,2
+  XOR  A
+  OUT  (0),A
+
 CLEAR_PCG_256_LOOP:
+  LD   H,8
   CALL VSYNC
+CLEAR_PCG_8_LOOP
   CALL CLEAR_1CH_PCG         ; 165 clk
+  DEC  H
+  JR   NZ, CLEAR_PCG_8_LOOP
   DJNZ CLEAR_PCG_256_LOOP
   RET
 
+;
+; PCG１キャラ分クリア
+;
 
 CLEAR_1CH_PCG:
-  XOR  A
-  OUT  (0),A
+;  XOR  A
+;  OUT  (0),A
   LD   A,E
   OUT  (1),A
   LD   A,D
   OR   10H
-  OUT  (2),A
+  OUT  (C),A
   LD   A,D
-  OUT  (2),A
+  OUT  (C),A
   INC  DE
 
-  XOR  A
-  OUT  (0),A
+;  XOR  A
+;  OUT  (0),A
   LD   A,E
   OUT  (1),A
   LD   A,D
   OR   10H
-  OUT  (2),A
+  OUT  (C),A
   LD   A,D
-  OUT  (2),A
+  OUT  (C),A
   INC  DE
 
-  XOR  A
-  OUT  (0),A
+;  XOR  A
+;  OUT  (0),A
   LD   A,E
   OUT  (1),A
   LD   A,D
   OR   10H
-  OUT  (2),A
+  OUT  (C),A
   LD   A,D
-  OUT  (2),A
+  OUT  (C),A
   INC  DE
 
-  XOR  A
-  OUT  (0),A
+;  XOR  A
+;  OUT  (0),A
   LD   A,E
   OUT  (1),A
   LD   A,D
   OR   10H
-  OUT  (2),A
+  OUT  (C),A
   LD   A,D
-  OUT  (2),A
+  OUT  (C),A
   INC  DE
 
-  XOR  A
-  OUT  (0),A
+;  XOR  A
+;  OUT  (0),A
   LD   A,E
   OUT  (1),A
   LD   A,D
   OR   10H
-  OUT  (2),A
+  OUT  (C),A
   LD   A,D
-  OUT  (2),A
+  OUT  (C),A
   INC  DE
 
-  XOR  A
-  OUT  (0),A
+;  XOR  A
+;  OUT  (0),A
   LD   A,E
   OUT  (1),A
   LD   A,D
   OR   10H
-  OUT  (2),A
+  OUT  (C),A
   LD   A,D
-  OUT  (2),A
+  OUT  (C),A
   INC  DE
 
-  XOR  A
-  OUT  (0),A
+;  XOR  A
+;  OUT  (0),A
   LD   A,E
   OUT  (1),A
   LD   A,D
   OR   10H
-  OUT  (2),A
+  OUT  (C),A
   LD   A,D
-  OUT  (2),A
+  OUT  (C),A
   INC  DE
 
-  XOR  A
-  OUT  (0),A
+;  XOR  A
+;  OUT  (0),A
   LD   A,E
   OUT  (1),A
   LD   A,D
   OR   10H
-  OUT  (2),A
+  OUT  (C),A
   LD   A,D
-  OUT  (2),A
+  OUT  (C),A
   INC  DE
 
   RET                        ; 10 clk : Total 145 clk
